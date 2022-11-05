@@ -1,0 +1,104 @@
+" Extensions
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+
+" Settings
+
+" No Leader-Key Keymaps
+nmap ge <action>(GotoNextError)
+nmap gt <action>(GotoTest)
+nmap gm <action>(MethodUp)
+" last changed in current buffer(file)
+nmap ga '.
+" paste之后不会把yank的内容替换掉
+vmap p "_dp
+
+" Leader-Key Keymaps
+let mapleader=" "
+
+" Which-Key
+set which-key
+set notimeout
+
+" one click trigger
+nmap <leader>] <action>(GotoImplementation)
+nmap <leader>[ <action>(GotoSuperMethod)
+
+" e: Toggle Explorer
+let g:WhichKeyDesc_ToggleExplore = "<leader>e ToggleExplorer"
+nmap <leader>e <action>(ActivateProjectToolWindow)
+
+" w: Windows/Tabs
+let g:WhichKeyDesc_Windows = "<leader>w Windows"
+let g:WhichKeyDesc_Windows_maximize = "<leader>wo maximize"
+nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
+let g:WhichKeyDesc_Windows_closeActiveWindow = "<leader>wc closeActiveWindow"
+nmap <leader>wc <c-w>c
+
+let g:WhichKeyDesc_Windows_splitWindowVertically = "<leader>wl splitWindowVertically"
+nmap <leader>wl <action>(Macro.SplitVertically)
+let g:WhichKeyDesc_Windows_splitWindowHorizontally = "<leader>wd splitWindowHorizontally"
+nmap <leader>wd <action>(Macro.SplitHorizontally)
+
+let g:WhichKeyDesc_Windows_nextTab = "<leader>wn nextTab"
+nmap <leader>wn <action>(NextTab)
+let g:WhichKeyDesc_Windows_prevTab = "<leader>wp prevTab"
+nmap <leader>wp <action>(PreviousTab)
+
+let g:WhichKeyDesc_Windows_nextSplitter = "<leader>wN nextSplitter"
+nmap <leader>wN <action>(NextSplitter)
+let g:WhichKeyDesc_Windows_prevTab = "<leader>wP PreviousSplitter"
+nmap <leader>wP <action>(PrevSplitter)
+
+" f: Find/Format/Telescope
+let g:WhichKeyDesc_FindOrFormat = "<leader>f FindOrFormat"
+let g:WhichKeyDesc_FindOrFormat_FindFile = "<leader>ff FindFile"
+nmap <leader>ff <action>(GotoFile)
+
+let g:WhichKeyDesc_FindOrFormat_FindFileLocation = "<leader>fl FindFileLocation"
+nmap <leader>fl <action>(SelectInProjectView)
+
+let g:WhichKeyDesc_FindOrFormat_FindText = "<leader>ft FindText"
+nmap <leader>ft <action>(FindInPath)
+
+let g:WhichKeyDesc_FindOrFormat_Commands = "<leader>fc Commands"
+nmap <leader>fc <action>(GotoAction)
+
+let g:WhichKeyDesc_FindOrFormat_OpenedProject = "<leader>fp OpenedProject"
+nmap <leader>fp <action>(OpenProjectWindows)
+
+let g:WhichKeyDesc_FindOrFormat_Format = "<leader>fm Format"
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+
+" z: Zip/Fold
+let g:WhichKeyDesc_Zip = "<leader>z Zip"
+let g:WhichKeyDesc_Zip_unZip = "<leader>zo unZip"
+nmap <leader>zo <action>(ExpandRegionRecursively)
+let g:WhichKeyDesc_Zip_Zip = "<leader>zc Zip"
+nmap <leader>zc <action>(CollapseRegionRecursively)
+let g:WhichKeyDesc_Zip_unZipAll = "<leader>zO unZipAll"
+nmap <leader>zO <action>(ExpandAllRegions)
+let g:WhichKeyDesc_Zip_ZipAll = "<leader>zC ZipAll"
+nmap <leader>zC <action>(CollapseAllRegions)
+
+" i: Insert
+let g:WhichKeyDesc_InsertAfterBrackets = "<leader>i InsertAfterBrackets"
+nmap <leader>i f(a
+
+" j: Add Semicolon and goto next line
+let g:WhichKeyDesc_InsertSemicolon = "<leader>j InsertSemicolon"
+nmap <leader>j A;<ESC>o
+
+" l: LSP: Language server protocol
+let g:WhichKeyDesc_LSP = "<leader>l LSP"
+let g:WhichKeyDesc_LSP_Rename = "<leader>lr Rename"
+nmap <leader>lr <action>(RenameElement)
+
+" r: Run/Re ⭐️
+let g:WhichKeyDesc_RunOrRe = "<leader>r RunOrRe"
+let g:WhichKeyDesc_RunOrRe_ReRun = "<leader>rr ReRun"
+nmap <leader>rr <action>(Rerun)
+let g:WhichKeyDesc_RunOrRe_ReRunTests = "<leader>rt ReRunTests"
+nmap <leader>rt <action>(RerunTests)
+let g:WhichKeyDesc_RunOrRe_Rename = "<leader>rn Rename"
+map <leader>rn <action>(RenameElement)
